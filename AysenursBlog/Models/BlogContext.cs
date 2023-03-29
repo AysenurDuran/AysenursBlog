@@ -11,5 +11,7 @@ namespace AysenursBlog.Models
         public DbSet<Author> Author { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Blog> Blog { get; set; }
+        public DbSet<PasswordCode> PasswordCode { get; set; }
+
     }
 }

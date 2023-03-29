@@ -1,20 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@*<div class="row">
-    <div class="col-md-6">
-        <form method="POST" action="/Home/Login" autocomplete="off">
-            <div class="form-group">
-                <input type="text" class="form-control" name="Email">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" name="Password">
-            </div>
-            <button type="submit" class="btn btn-secondary">Login</button>
-
-        </form>
-    </div>
-</div>*@
+@{
+	Layout = null;
+}
 
 
 <!doctype html>
@@ -63,11 +52,11 @@
 									</label>
 								</div>
 								<div class="w-50 text-md-right">
-									<a href="#">Forgot Password</a>
+									<a asp-controller="Account" asp-action="ForgatPassword">Forgot Password</a>
 								</div>
 							</div>
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get Started</button>
+								<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Sign In</button>
 							</div>
 						</form>
 					</div>

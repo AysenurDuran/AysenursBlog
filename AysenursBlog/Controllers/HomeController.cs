@@ -1,9 +1,11 @@
-﻿using AysenursBlog.Models;
+﻿using AysenursBlog.Filter;
+using AysenursBlog.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace AysenursBlog.Controllers
 {
+   
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -38,6 +40,7 @@ namespace AysenursBlog.Controllers
 			}
 
 			HttpContext.Session.SetInt32("id", author.Id);
+			HttpContext.Session.SetString("fullname", author.Name);
 
 			return RedirectToAction("Index", "Blog");
 		}

@@ -8,8 +8,8 @@ using System.Diagnostics;
 namespace AysenursBlog.Controllers
 {
     [UserFilter]
-	
-	public class BlogController : Controller
+
+    public class BlogController : Controller
     {
         private readonly BlogContext _context;
         public BlogController(BlogContext context)

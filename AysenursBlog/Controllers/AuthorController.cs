@@ -18,6 +18,7 @@ namespace AysenursBlog.Controllers
         {
             return View();
         }
+       
         public async Task<IActionResult> AddAuthor(Author author)
         {
             if (author.Id == 0)

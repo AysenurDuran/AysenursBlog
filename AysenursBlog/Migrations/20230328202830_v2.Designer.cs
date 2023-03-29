@@ -4,6 +4,7 @@ using AysenursBlog.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AysenursBlog.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    partial class BlogContextModelSnapshot : ModelSnapshot
+    [Migration("20230328202830_v2")]
+    partial class v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,29 +112,6 @@ namespace AysenursBlog.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("AysenursBlog.Models.PasswordCode", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(6)
-                        .HasColumnType("nvarchar(6)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AuthorId");
-
-                    b.ToTable("PasswordCode");
-                });
-
             modelBuilder.Entity("AysenursBlog.Models.Blog", b =>
                 {
                     b.HasOne("AysenursBlog.Models.Author", "Author")
@@ -149,17 +129,6 @@ namespace AysenursBlog.Migrations
                     b.Navigation("Author");
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("AysenursBlog.Models.PasswordCode", b =>
-                {
-                    b.HasOne("AysenursBlog.Models.Author", "Author")
-                        .WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Author");
                 });
 #pragma warning restore 612, 618
         }
