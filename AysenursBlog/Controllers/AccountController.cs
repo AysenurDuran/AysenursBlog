@@ -73,7 +73,7 @@ namespace AysenursBlog.Controllers
 				msg.IsBodyHtml = true;	
 				SmtpClient sc = new SmtpClient("smtp.gmail.com",587);
 				sc.UseDefaultCredentials= false;
-				NetworkCredential cre = new NetworkCredential("sdevelopers.jr@gmail.com", "sdevelopers.jr123");
+				NetworkCredential cre = new NetworkCredential("sdevelopers.jr@gmail.com", "*****");
 				sc.Credentials = cre;
 				sc.EnableSsl = true;
 				sc.Send(msg);
